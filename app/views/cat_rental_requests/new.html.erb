@@ -1,0 +1,7 @@
+<form action="/catrentalrequests", method="POST">
+
+  <select name="catrentalrequest[cat_id]">
+    <% @cats.each do |cat| %>
+    <option value=<%= cat.id %>><%= cat.name %></options>
+      <% end %>
+    </select>

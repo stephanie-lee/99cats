@@ -1,0 +1,35 @@
+<form action="/cats/<%= @cat.id %>" method="POST">
+  <input type="hidden" , value=<%= "PATCH" if @cat.persisted?%> , name="_method">
+
+  <label>Name: </label>
+  <input type="text" name="cat[name]" value="<%= @cat.name %>">
+  <br>
+
+<label>Sex: </label>
+  <input type="radio" name="cat[sex]" id="cat_sex_female" value="F"
+         <%= "checked" if @cat.sex == "F" %> >
+  <label for="cat_sex_female">Female</label>
+
+  <input type="radio" name="cat[sex]" id="cat_sex_male" value="M"
+         <%= "checked" if @cat.sex == "M" %> >
+  <label for="cat_sex_male">Male</label>
+  <br>
+
+  <label for="cat_color">Color:</label>
+  <select name="cat[color]" id="cat_color">
+      <option value=""></option>
+      <option value="red" <%= "selected" if @cat.color == "red" %> >red</option>
+      <option value="brown" <%= "selected" if @cat.color == "brown" %> >brown</option>
+      <option value="black" <%= "selected" if @cat.color == "black" %> >black</option>
+      <option value="white" <%= "selected" if @cat.color == "white" %> >white</option>
+  </select>
+  <br>
+
+  <label>Birthday: </label>
+  <input type="date" name="cat[birth_date]" placeholder="mm/dd/yyyy" value = <%= @cat.birth_date %>>
+  <br>
+  <br>
+
+  <label>Description: </label>
+  <textarea name="cat[description]" placeholder="Describe
+  your cat and your fondest memories with your cat!" rows = "5" columns = "20" ><%= @cat.description %></textarea>
